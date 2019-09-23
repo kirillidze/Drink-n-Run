@@ -29,6 +29,12 @@
                 hint="Введите значение..."
                 keyboardType="number" 
             />
+            <Dropdown 
+                class="m-x-20 h3"
+                :items="activities" 
+                :selectedIndex="0"
+                :itemsPadding="10"
+            />
             <Button class="btn btn-primary btn-active btn-rounded-sm" text="Добавить" @tap="addActivity" />
         </StackLayout>
     </Page>
@@ -43,6 +49,11 @@
             return {
                 textFieldValue: '',
                 selectedDate: new Date(),
+                activities: [
+                    'Бег',
+                    'Тренировка',
+                    'Напиток'
+                ]
             }
         },
         mounted() {
