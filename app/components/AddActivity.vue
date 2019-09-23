@@ -29,13 +29,19 @@
                 hint="Введите значение..."
                 keyboardType="number" 
             />
-            <Dropdown 
+            <DropDown 
+                hint="Выберите вид активности"
                 class="m-x-20 h3"
                 :items="activities" 
                 :selectedIndex="0"
                 :itemsPadding="10"
             />
-            <Button class="btn btn-primary btn-active btn-rounded-sm" text="Добавить" @tap="addActivity" />
+            <Button 
+                class="btn btn-primary btn-active btn-rounded-lg" 
+                text="Добавить" 
+                @tap="addActivity" 
+                :textWrap="true"
+            />
         </StackLayout>
     </Page>
 </template>

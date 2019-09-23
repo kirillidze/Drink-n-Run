@@ -19,29 +19,66 @@
             <Label class="action-bar-title" text="Home"></Label>
         </ActionBar>
 
-        <StackLayout>
-            <Label class="h2 title" text="Дата:" horizontalAlignment="center"/>
-            <Label class="h1" :text="currentDate" horizontalAlignment="center"/>
-            <Label class="h2 title" text="Текущий счёт:" horizontalAlignment="center"/>
-            <Label 
-                class="score quicksand-bold" 
-                :class="scoreClasses" 
-                :text="computedScore" 
-                horizontalAlignment="center"
-            />
-            <Label class="h2 title" text="  Прогресс:" horizontalAlignment="center"/>
-            <Progress class="m-x-20" :value="currentProgress" :maxValue="minTrainVal" />
-            <Button 
-                class="btn btn-primary btn-active btn-rounded-sm" 
-                text="Сделать запись" 
-                @tap="goToAddActivity" 
-            />
-        </StackLayout>
+        <Gridlayout rows="*, auto">
+            <ScrollView rowSpan="2"> 
+                <StackLayout class="p-20">
+                    <Gridlayout columns="auto, *">
+                        <Label v-if="score > 0" col="0" class="status-ico fa" text.decode="&#xf164;"/>
+                        <Label v-else-if="score < 0" col="0" class="status-ico fa" text.decode="&#xf165;"/>
+                        <Label v-else col="0" class="status-ico fa" text.decode="&#xf11a;"/>
+                        <StackLayout col="1">
+                            <Label class="h2 title" text="Дата:" horizontalAlignment="left"/>
+                            <Label class="h2" :text="currentDate" horizontalAlignment="left"/>
+                            <Label class="h2 title" text="Текущий счёт:" horizontalAlignment="left"/>
+                            <Label 
+                                class="score quicksand-bold" 
+                                :class="scoreClasses" 
+                                :text="computedScore" 
+                                horizontalAlignment="left"
+                            />
+                        </StackLayout>
+                    </Gridlayout>
+
+                    <StackLayout class="m-b-20">
+                        <Label class="h2 title" text="Прогресс:" />
+                        <Progress :value="currentProgress" :maxValue="minTrainVal" />
+                    </StackLayout>
+
+                    <FlexboxLayout class="activities" flexWrap="wrap">
+                        <StackLayout
+                            class="p-10"
+                            v-for="(activity, key) in activities"  
+                            :key="key"
+                            height="150" 
+                            width="50%"
+                            backgroundColor="#43b883"
+                        >
+                            <Label :text="activity.name" backgroundColor="#1c6b48"/>
+                        </StackLayout>
+                    </FlexboxLayout>
+                </StackLayout>
+            </ScrollView>
+
+            <Gridlayout row="1" columns="*, auto"> 
+                <Button 
+                    col="1"
+                    class="btn btn-primary btn-active circle fa" 
+                    text.decode="&#xf067;"
+                    :fontSize="32"
+                    @tap="goToAddActivity" 
+                    :textWrap="true"
+                    width="50"
+                    height="50"
+                />
+            </Gridlayout>
+
+        </Gridlayout>
     </Page>
 </template>
 
 <script>
     import AddActivity from "./AddActivity";  
+    import ActivityCard from "./ActivityCard"; 
     import * as utils from "~/shared/utils";
     import SelectedPageService from "../shared/selected-page-service";
 
@@ -52,6 +89,12 @@
                 currentDate: null,
                 currentProgress: 10,
                 minTrainVal: 30,
+
+                activities: [
+                    { name: 'Бег'},
+                    { name: 'Тренировка'},
+                    { name: 'Напиток'},
+                ],
 
                 AddActivity: AddActivity,
             }
@@ -69,6 +112,11 @@
             },
             computedScore() {
                 return this.score > 0 ? `+${this.score}` : this.score
+            },
+            computedIco() {
+                if(this.score > 0) return '&#xf164;';
+                if(this.score < 0) return '&#xf165;';
+                return '&#xf11a;'
             }
         },
         methods: {
@@ -100,6 +148,12 @@
     // End custom common variables
 
     // Custom styles
+    .status-ico {
+        font-size: 120;
+        color: $page-icon-color;
+        margin-left: 5;
+    }
+
     .title {
         color: gray;
     }
@@ -113,5 +167,9 @@
         &--red {
             color: red;
         }
+    }
+
+    .activities {
+        margin: -20;
     }
 </style>
