@@ -3,8 +3,13 @@ import App from "./components/App";
 import Home from "./components/Home";
 import DrawerContent from "./components/DrawerContent";
 import RadSideDrawer from "nativescript-ui-sidedrawer/vue";
+
 Vue.use(RadSideDrawer);
-Vue.registerElement("DropDown", () => require("nativescript-drop-down/drop-down").DropDown)
+Vue.registerElement("DropDown", () => require("nativescript-drop-down/drop-down").DropDown);
+Vue.registerElement(
+  'CardView',
+  () => require('@nstudio/nativescript-cardview').CardView
+);
 
 Vue.config.silent = (TNS_ENV === 'production');
 

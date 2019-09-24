@@ -45,16 +45,11 @@
                     </StackLayout>
 
                     <FlexboxLayout class="activities" flexWrap="wrap">
-                        <StackLayout
-                            class="p-10"
-                            v-for="(activity, key) in activities"  
+                        <ActivityCard
+                            v-for="(activity, key) in activities"
                             :key="key"
-                            height="150" 
-                            width="50%"
-                            backgroundColor="#43b883"
-                        >
-                            <Label :text="activity.name" backgroundColor="#1c6b48"/>
-                        </StackLayout>
+                            :item="activity"
+                        />
                     </FlexboxLayout>
                 </StackLayout>
             </ScrollView>
@@ -83,6 +78,10 @@
     import SelectedPageService from "../shared/selected-page-service";
 
     export default {
+        components: {
+            ActivityCard,
+        },
+
         data() {
             return {
                 score: 1,
@@ -151,7 +150,7 @@
     .status-ico {
         font-size: 120;
         color: $page-icon-color;
-        margin-left: 5;
+        margin-right: 20;
     }
 
     .title {
@@ -170,6 +169,6 @@
     }
 
     .activities {
-        margin: -20;
+        margin: -10;
     }
 </style>
