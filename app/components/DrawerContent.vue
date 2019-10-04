@@ -13,19 +13,19 @@
                         <Label col="1" text="Home" class="p-r-10"></Label>
                     </GridLayout>
 
-                    <GridLayout columns="auto, *" :class="'sidedrawer-list-item' + (selectedPage === 'Browse' ? ' selected': '')" @tap="onNavigationItemTap(Browse)">
+                    <GridLayout columns="auto, *" :class="'sidedrawer-list-item' + (selectedPage === 'AddActivity' ? ' selected': '')" @tap="onNavigationItemTap(AddActivity)">
+                        <Label col="0" text.decode="&#xf005;" class="fa"></Label>
+                        <Label col="1" text="Add Activity" class="p-r-10"></Label>
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *" :class="'sidedrawer-list-item' + (selectedPage === 'Calendar' ? ' selected': '')" @tap="onNavigationItemTap(Calendar)">
                         <Label col="0" text.decode="&#xf1ea;" class="fa"></Label>
-                        <Label col="1" text="Browse" class="p-r-10"></Label>
+                        <Label col="1" text="Calendar" class="p-r-10"></Label>
                     </GridLayout>
 
                     <GridLayout columns="auto, *" :class="'sidedrawer-list-item' + (selectedPage === 'Search' ? ' selected': '')" @tap="onNavigationItemTap(Search)">
                         <Label col="0" text.decode="&#xf002;" class="fa"></Label>
                         <Label col="1" text="Search" class="p-r-10"></Label>
-                    </GridLayout>
-
-                    <GridLayout columns="auto, *" :class="'sidedrawer-list-item' + (selectedPage === 'AddActivity' ? ' selected': '')" @tap="onNavigationItemTap(AddActivity)">
-                        <Label col="0" text.decode="&#xf005;" class="fa"></Label>
-                        <Label col="1" text="Add Activity" class="p-r-10"></Label>
                     </GridLayout>
         
                     <StackLayout class="hr-light"></StackLayout>
@@ -41,7 +41,7 @@
 
 <script>
     import Home from "./Home";
-    import Browse from "./Browse";
+    import Calendar from "./Calendar";
     import AddActivity from "./AddActivity";
     import Search from "./Search";
     import Settings from "./Settings";
@@ -56,7 +56,7 @@
         data () {
             return {
                 Home: Home,
-                Browse: Browse,
+                Calendar: Calendar,
                 AddActivity: AddActivity,
                 Search: Search,
                 Settings: Settings,
@@ -65,7 +65,7 @@
         },
         components: {
             Home,
-            Browse,
+            Calendar,
             AddActivity,
             Search,
             Settings

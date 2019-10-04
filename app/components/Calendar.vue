@@ -16,13 +16,14 @@
                 @tap="onDrawerButtonTap"
                 ios.position="left">
             </ActionItem>
-            <Label class="action-bar-title" text="Browse"></Label>
+            <Label class="action-bar-title" text="Calendar"></Label>
         </ActionBar>
 
         <GridLayout class="page-content">
             <Label class="page-icon fa" text.decode="&#xf1ea;"></Label>
             <Label class="page-placeholder" :text="message"></Label>
         </GridLayout>
+        <RadCalendar :viewMode="viewMode.Month"></RadCalendar>
 
     </Page>
 </template>
@@ -30,8 +31,14 @@
 <script>
     import * as utils from "~/shared/utils";
     import SelectedPageService from "../shared/selected-page-service";
+    import { CalendarViewMode } from 'nativescript-ui-calendar';
 
     export default {
+        data() {
+            return {
+                viewMode: CalendarViewMode,
+            }
+        },
         mounted() {
             SelectedPageService.getInstance().updateSelectedPage("Browse");
         },

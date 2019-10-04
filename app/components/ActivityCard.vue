@@ -19,10 +19,6 @@
 				/>
 			</StackLayout>
 		</CardView>
-    	<!-- <Label 
-			class="activity-card__inner p-10"
-			:text="item.name"
-		/> -->
   	</StackLayout>
 </template>
 
