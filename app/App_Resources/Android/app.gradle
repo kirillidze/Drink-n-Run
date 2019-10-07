@@ -13,6 +13,8 @@ android {
   defaultConfig {
     minSdkVersion 17
     generatedDensities = []
+    multiDexEnabled true
+    applicationId = "org.meooow.drinkandrun"
   }
   aaptOptions {
     additionalParameters "--no-version-vectors"

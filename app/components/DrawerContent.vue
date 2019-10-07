@@ -2,8 +2,8 @@
 <GridLayout rows="auto, *" class="sidedrawer sidedrawer-left">
             <StackLayout row="0" class="sidedrawer-header">
                 <Label class="sidedrawer-header-image fa" text.decode="&#xf2bd;"></Label>
-                <Label class="sidedrawer-header-brand" text="User Name"></Label>
-                <Label class="footnote" text="username@mail.com"></Label>
+                <Label class="sidedrawer-header-brand" :text="user.name"></Label>
+                <Label class="footnote" :text="user.email"></Label>
             </StackLayout>
         
             <ScrollView row="1" class="sidedrawer-content">
@@ -62,6 +62,12 @@
                 Settings: Settings,
                 selectedPage: ""
             };
+        },
+        props: {
+            user: {
+                type: Object,
+                required: true,
+            },
         },
         components: {
             Home,

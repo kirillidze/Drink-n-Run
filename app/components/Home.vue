@@ -76,6 +76,8 @@
     import * as utils from "~/shared/utils";
     import SelectedPageService from "../shared/selected-page-service";
 
+
+
     export default {
         components: {
             ActivityCard,
@@ -94,7 +96,7 @@
                     { name: 'Напиток'},
                 ],
 
-                AddActivity: AddActivity,
+                AddActivity,
             }
         },
         mounted() {

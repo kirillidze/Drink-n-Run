@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "347403282599",
+    "firebase_url": "https://drink-n-run.firebaseio.com",
+    "project_id": "drink-n-run",
+    "storage_bucket": "drink-n-run.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347403282599:android:44c0f8ddd42efd055a5382",
+        "android_client_info": {
+          "package_name": "org.meooow.drinkandrun"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347403282599-ergb2o7fd321747s87558v4p2c56uppb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB31CpYaQxTjV6vKqUs0mzeEGOMJfK2BzA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347403282599-ergb2o7fd321747s87558v4p2c56uppb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
